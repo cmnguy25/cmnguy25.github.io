@@ -274,3 +274,30 @@ img { max-width: 100%; height: auto; display: block; }
 
 /* (Optional) if your browser stylesheet adds text-indent anywhere */
 .hero h1 { text-indent: 0 !important; }
+
+/* Layout the hero as a 2-column grid on desktop, stacked on mobile */
+.hero.container {
+    display: grid;
+    grid-template-columns: 1fr;        /* mobile: stack */
+    align-items: center;
+    gap: 2rem;
+  }
+  
+  @media (min-width: 900px) {
+    .hero.container {
+      grid-template-columns: 1.2fr 0.8fr;  /* text | photo */
+    }
+  }
+  
+  /* Photo styling */
+  .hero-photo {
+    width: 300px;               /* controls visual size */
+    aspect-ratio: 1 / 1;
+    border-radius: 9999px;      /* circle */
+    object-fit: cover;
+    justify-self: end;          /* push photo to the right column edge */
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    display: block;
+  }
+  
